@@ -1,6 +1,5 @@
 package com.nelioalves.cursomc.domain;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -9,41 +8,36 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
-public class Categoria implements Serializable {
-	private static final long serialVersionUID = 1L;
-	
+public class Produto {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	private Double preco;
 	
-	@JsonManagedReference
-	@ManyToMany(mappedBy="categorias")
-	private List<Produto> produtos = new ArrayList<>();
+	@JsonBackReference
+	@ManyToMany
+	@JoinTable(name = "PRODUTO_CATEGORIA",
+			joinColumns = @JoinColumn(name ="produto_id"),
+			inverseJoinColumns = @JoinColumn(name = "categoria_id")
+			)
+	private List<Categoria> categorias = new ArrayList<>();
 	
-	public Categoria() {
-		super();
+	public Produto() {
 	}
 
-	public List<Produto> getProdutos() {
-		return produtos;
-	}
-
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
-	}
-
-	public Categoria(Integer id, String nome) {
+	public Produto(Integer id, String nome, Double preco) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.preco = preco;
 	}
 
 	public Integer getId() {
@@ -62,6 +56,22 @@ public class Categoria implements Serializable {
 		this.nome = nome;
 	}
 
+	public Double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(Double preco) {
+		this.preco = preco;
+	}
+
+	public List<Categoria> getCategorias() {
+		return categorias;
+	}
+
+	public void setCategorias(List<Categoria> categorias) {
+		this.categorias = categorias;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -75,9 +85,10 @@ public class Categoria implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Categoria other = (Categoria) obj;
+		Produto other = (Produto) obj;
 		return Objects.equals(id, other.id);
 	}
+
 	
 	
 	
