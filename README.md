@@ -3,12 +3,16 @@ Repositório criado com o objetivo de compartilhar
 conteúdo sobre orientação a objetos.
 
 🚀 Descrição
+
 Neste projeto vou construir login, cadastro de usuário,
 fluxo completo de navegação de carrinho de compras,
 fluxo de fechamento de pedido,tela de perfil de usuário
 com envio de foto tanto pela câmera quanto pela galeria.
+
 👨‍💻️ Tecnologias Utilizadas
+
 VISÃO TÉCNICA - BACK END:
+
 Para isto nós vamos criar uma API Rest usando Java
 com Spring Boot e banco de dados MySQL.
 Vamos usar JPA com Hibernate para mapeamento objeto-relacional,
