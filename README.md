@@ -31,7 +31,8 @@ Clone o projeto com o comando abaixo:
 
  # Clone o repositório
  ❯ git clone https://github.com/LuanRLima/Back-End-Clinica-Veterinaria.git
- # Abra ele na sua IDE e der Mavem Update e depois execute.
+   Abra ele na sua IDE e der Mavem Update e depois execute.
+   
 🔮 Funcionalidades Futuras
  A
  B
