@@ -35,6 +35,7 @@ Clone o projeto com o comando abaixo:
    Abra ele na sua IDE e der Mavem Update e depois execute.
    
 🔮 Funcionalidades Futuras
+
  A
  B
  C
