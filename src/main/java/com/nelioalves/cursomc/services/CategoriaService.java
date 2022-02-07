@@ -1,5 +1,6 @@
 package com.nelioalves.cursomc.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.hibernate.ObjectNotFoundException;
@@ -41,6 +42,9 @@ public class CategoriaService {
 			throw new DataIntegrityException("Não é possivel excuiler uma categoria que possui produtos");
 		}
 		
+	}
+	public List<Categoria> findAll() {
+		return repo.findAll();
 	}
 
 }
